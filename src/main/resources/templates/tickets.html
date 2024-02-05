@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="...">
+    <!-- Bootstrap Icons CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css" integrity="...">
+    <!-- Load Fontawesome -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <title>TPV PERRO BLANCO</title>
+</head>
+
+<body>
+
+   <div th:include="plantilla.html::header"></div>
+
+    <main class="body_tickets">
+	
+		<section class="panel_tabla">
+			<table border="1">
+				<thead>
+					<tr>
+						<th class="columna_id">ID</th>
+						<th class="columna_fecha">Fecha</th>
+						<th class="columna_hora">Hora</th>
+						<th class="columna_ver_ticket">Ver ticket</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="ticket : ${atr_lista_tickets}">
+						<td class="celda_id" th:text="${ticket.id}"></td>
+						<td class="celda_fecha" th:text="${ticket.fecha}"></td>
+						<td class="celda_hora" th:text="${ticket.hora}"></td>
+						<td class="celda_ver_ticket"><a th:href="'/verTicket/' + ${ticket.id}"><i
+									class="fa-solid fa-eye"></i></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		
+			<section class="panel_ticket_tickets">
+				<article class="ticket">
+					<div class="nombre_ticket">
+						<p th:text="'TICKET Nº ' + ${atr_ticket_seleccionado.id}"></p>
+					</div>
+					<div class="info_ticket">
+						<p class="fecha_ticket" th:text="${atr_ticket_seleccionado.fecha}">Fecha</p>
+						<p class="hora_ticket" th:text="${atr_ticket_seleccionado.hora}">Hora</p>
+					</div>
+					<div class="lista_productos_ticket">
+						<div class="titulos_ticket">
+							<p class="nombre_producto_ticket">PROD.</p>
+							<p class="cantidad_producto_ticket">CANT.</p>
+							<p class="precio_producto_ticket">PRECIO</p>
+							<p class="total_producto_ticket">TOTAL</p>
+						</div>
+						<div class="producto_ticket" th:each="producto : ${atr_lista_productos_ticket}">
+							<div class="info_producto">
+								<p class="nombre_producto_ticket" th:text="${producto.producto.nombre}"></p>
+								<p class="cantidad_producto_ticket" th:text="@{'x' + ${producto.cantidad}}"></p>
+								<p class="precio_producto_ticket" th:text="@{${producto.producto.precio} + ' €'}"></p>
+								<p class="total_producto_ticket" th:text="@{${producto.importe} + ' €'}"></p>
+							</div>
+						</div>
+					</div>
+					<div class="precio_total">
+						<p>TOTAL</p>
+						<p th:text="${atr_importe_total}"></p>
+					</div>
+				</article>
+			</section>
+    </main>
+
+	<div th:include="plantilla.html::footer"></div>
+
+
+</body>
+
+</html>

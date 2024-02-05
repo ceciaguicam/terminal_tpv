@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/tarjeta_producto_styles.css">
+    <link rel="stylesheet" href="styles/body_ventas_styles.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="...">
+    <!-- Load Fontawesome -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <title>TPV PERRO BLANCO</title>
+</head>
+
+<body>
+
+   <div th:include="plantilla.html::header"></div>
+
+    <main>
+		<section class="tarjeta_nuevo_producto">
+			<form th:action="@{/añadirProducto}" th:object="${objeto_entidad}" method="post" enctype="multipart/form-data">
+				<div>
+					<label for="nombre">Nombre</label>
+					<input type="text" th:field="*{nombre}" name="nombre" required>
+				</div>
+				<div>
+					<label for="precio">Precio</label>
+					<input type="text" th:field="*{precio}" name="precio" required>
+				</div>
+				<div>
+					<label for="IVA">IVA</label>
+					<select name="IVA" th:field="*{IVA}" required>
+						<option value=4>4 %</option>
+						<option value=10>10 %</option>
+						<option value=21>21 %</option>
+					</select>
+				</div>
+				<div>
+					<label for="foto">Foto</label>
+					<input type="file" id="foto" name="foto" accept="image/*" required>
+				</div>
+				<div>
+					<input class="boton_añadir_producto" type="submit" value="Nuevo producto">
+				</div>
+			</form>
+		</section>
+        <section class="panel_productos_productos">
+			
+			<article class="tarjeta_producto" th:each="producto : ${atr_lista_productos}">
+				<div>
+					<p class="nombre_producto" th:text="${producto.nombre}"></p>
+				</div>
+				<div class="imagen_producto">
+					<img th:src="@{'images/' + ${producto.foto}}" alt="" width="255px" height="255px"></img>
+				</div>
+				<div class="pie_tarjeta">
+					<p class="precio_producto" th:text="@{${producto.precio} + ' €'}"></p>
+					<a th:href="'/irAModificarProducto/' + ${producto.id}" class="btn btn-success btn-lg" id="boton_modificar_producto"><i class="fa-solid fa-pencil"></i></i></a>
+				</div>
+			</article>
+			
+        </section>
+    </main>
+
+	<div th:include="plantilla.html::footer"></div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,455 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+:root {
+	--primary_color: #464343;
+	--primary_color_light: #D9D9D9;
+	--white: #EDE6C4;
+	
+	--general_padding: 20px;
+	
+	--footer_height: 60px;
+	--header_height: 60px;
+}
+
+/*ESTILOS CABECERA*/
+
+header {
+	background-color: var(--primary_color);
+	color:white;
+	
+	display: flex;
+	flex-direction: row;
+	
+	height: var(--header_height);
+}
+
+#header_title h1 {
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+}
+
+#header_title {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+	padding-left: var(--general_padding);
+	width: 200px;
+	
+}
+
+nav {
+	width: 100%;
+}
+
+nav ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	height: 60px;
+}
+
+nav ul li {
+	list-style: none;
+	padding: var(--general_padding);
+	height: 60px;
+}
+
+nav ul li a{
+	height: 60px;
+	text-decoration: none;
+	color: white;
+}
+
+nav ul li a:hover{
+	color: var(--primary_color);
+}
+
+nav ul li:hover {
+  background-color: var(--primary_color_light);
+  color: var(--principal_color);
+}
+
+/*ESTILOS BODY*/
+
+main {
+	padding: var(--general_padding);
+}
+
+/*ESTILOS TPV*/
+
+/*Body*/
+
+.body_tpv {
+  min-height: calc(100vh - (var(--header_height) + var(--footer_height) + calc(4 * var(--general_padding))));
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+}
+
+/*Tarjetas productos*/
+
+.panel_productos_tpv {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+gap: 10px 10px;
+grid-auto-flow: row;
+}
+
+.nombre_producto {
+	font-size: 20px;
+}
+
+.tarjeta_producto {
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	
+	padding: var(--general_padding);
+	background-color: var(--primary_color_light);
+	height: 370px;
+	width: 280px;
+	
+	border-radius: 6px;
+	
+}
+
+.imagen_producto img{
+	padding: 10px;
+}
+
+.pie_tarjeta {
+	
+	display: flex;
+	flex-direction: row;
+	height: 30px;
+	width: 100%;
+	justify-content: space-around;
+	font-size: 20px;
+	padding-bottom: 10px;
+	
+}
+
+#boton_añadir_a_ticket {
+
+	font-size: 18px;
+	height: 30px;
+	width: 40px;
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+/*Ticket*/
+
+.panel_ticket {
+	padding: var(--general_padding);
+	background-color: var(--primary_color_light);
+	margin-left: 10px;
+	border-radius: 6px;
+	width: 100%;
+	
+}
+
+.ticket {
+	background-color: white;
+	border-radius: 6px;
+	height: 80%;
+	
+	display: flex;
+	flex-direction: column;
+}
+
+.nombre_ticket  {
+	padding: 10px;
+	font-weight: bolder;
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.info_ticket {
+	padding: 10px;
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.lista_productos_ticket {
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.titulos_ticket {
+	
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	
+	width: 90%;
+	font-size: 12px;
+}
+
+.producto_ticket {
+	display: flex;
+	flex-direction: row;
+	
+	font-size: 12px;
+}
+
+.info_producto {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	
+	width: 100%;
+	
+	font-size: 12px;
+}
+
+
+
+.precio_total {
+	padding: 10px;
+	font-weight: bolder;
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#boton_quitar_producto_de_ticket {
+	width: 20px;
+	height: 20px;
+	font-size: 10px;
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.botones_ticket {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+
+	padding: var(--general_padding);
+}
+
+#boton_ticket {
+	width: 50px;
+	height: 40px;
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+/*ESTILOS TICKETS*/
+
+/*Body*/
+.body_tickets {
+  min-height: calc(100vh - (var(--header_height) + var(--footer_height)));
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.panel_tabla {
+	width: 80%;
+	padding: var(--general_padding);
+}
+
+.panel_ticket_tickets {
+	padding: var(--general_padding);
+	background-color: var(--primary_color_light);
+	margin-left: 10px;
+	border-radius: 6px;
+	width: 22%;
+	
+}
+
+/* Estilos tabla */
+table {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+thead {
+	text-align: center;
+}
+
+/* Estilo celdas encabezado */
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Estilo alternado para filas */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Estilo al pasar el ratón por encima de una fila */
+tr:hover {
+  background-color: #ddd;
+}
+
+/* Estilo para la primera fila (encabezado) */
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/*Columnas*/
+.columna_ver_ticket {
+	width: 100px;
+}
+
+.columna_id {
+	width: 50px;
+	
+}
+
+.columna_fecha {
+	width: 150px;
+}
+
+.columna_hora {
+	width: 150px;
+}
+
+/*Celdas*/
+.celda_ver_ticket {
+	text-align: center;
+}
+
+.celda_ver_ticket a {
+	text-decoration: none;
+	color: var(--primary_color);
+}
+
+/*ESTILOS ADMINISTRACIÓN PRODUCTOS*/
+
+/*Tarjetas productos*/
+
+.panel_productos_productos {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+gap: 10px 10px;
+grid-auto-flow: row;
+}
+
+/*Tarjet añadir producto*/
+
+.body_modificar_producto {
+	padding: var(--general_padding);
+  	min-height: calc(100vh - (var(--header_height) + var(--footer_height) + calc(4 * var(--general_padding))));
+  	background-color: white;
+  	display: flex;
+  	justify-content: flex-start;
+  	flex-direction: column;
+}
+
+.tarjeta_nuevo_producto {
+	background-color: var(--primary_color_light);
+	border-radius: 6px;
+	height: 100px;
+	width: 99%;
+	padding: var(--general_padding);
+	margin-bottom: 10px;
+}
+
+.tarjeta_nuevo_producto form{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	
+	padding: var(--general_padding);
+}
+
+.tarjeta_nuevo_producto form input {
+	padding-left: 5px;
+	border-radius: 6px;
+}
+
+.boton_añadir_producto {
+	padding-right: 5px;
+}
+
+/*Tarjeta modificar producto*/
+
+.tarjeta_modificar_producto {
+	background-color: var(--primary_color_light);
+	border-radius: 6px;
+	height: 100px;
+	width: 99%;
+	padding: var(--general_padding);
+	margin-bottom: 10px;
+	
+}
+
+.tarjeta_modificar_producto form{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	
+	padding: var(--general_padding);
+	
+}
+
+.tarjeta_modificar_producto form input {
+	padding-left: 5px;
+	border-radius: 6px;
+}
+
+#boton_modificar_producto {
+
+	font-size: 18px;
+	height: 35px;
+	width: 40px;
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+
+/*ESTILOS FOOTER*/
+
+footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	
+	height: var(--footer_height);
+	
+	background-color: var(--primary_color);
+	color: var(--white);
+}
+
+footer p {
+	padding-left: var(--general_padding);
+}
+
+
